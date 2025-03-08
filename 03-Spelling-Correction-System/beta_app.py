@@ -303,7 +303,7 @@ def about_app():
     st.write("4️⃣ Step 4")
     st.write("5️⃣ Step 5")
 
-    st.subheader("Model Performance 📊")
+    st.subheader("System Performance 🛠️")
     st.write("[Insert Graphs and Tables]")
 
     st.subheader("Future Work 🚀")

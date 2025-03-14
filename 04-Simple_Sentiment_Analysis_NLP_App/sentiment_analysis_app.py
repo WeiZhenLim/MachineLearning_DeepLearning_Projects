@@ -149,9 +149,9 @@ def main_page():
                     st.error("Sentiment: Negative 😢")
                 else:
                     st.warning("Sentiment: Neutral 😶")
-
+                
                 # Plot Polarity and Subjectivity
-                st.subheader("Sentiment Score Breakdown")
+                st.write("#### Sentiment Score Breakdown")
                 
                 fig, ax = plt.subplots(figsize=(6, 4))
                 sns.barplot(x=df_sentiment.index, y="Score", data=df_sentiment, ax=ax, hue=df_sentiment.index)
@@ -159,6 +159,21 @@ def main_page():
                 ax.set_xlabel("Metrics")
 
                 st.pyplot(fig)
+
+                # Definitions for Polarity and Subjectivity
+                st.write("#### ℹ️ Definitions")
+                st.write("""
+                        **Polarity**  
+                        Polarity score is a float within the range of [-1.0, 1.0], where:
+                        - Greater than 0.0 is positive sentiment (closer to 1.0 means more positive).
+                        - Less than 0.0 is negative sentiment (closer to -1.0 means more negative).
+                        - Exactly 0.0 is neutral sentiment, indicating no strong polarity in either direction.
+                        """)
+                st.write("""
+                         **Subjectivity**  
+                         Subjectivity is a float within the range of [0.0, 1.0] where 0.0 is very objective and 1.0 is very subjective.
+                         """)
+                st.write("**Reference**: [Link](https://textblob.readthedocs.io/en/dev/quickstart.html)")
                 
         # Show word sentiment
         with col2:

@@ -1,0 +1,6 @@
+streamlit
+textblob
+vaderSentiment
+pandas
+matplotlib
+seaborn

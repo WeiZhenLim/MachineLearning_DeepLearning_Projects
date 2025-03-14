@@ -98,7 +98,7 @@ def main_page():
         st.session_state["text_input"] = user_input
 
         # Button layout
-        col1, col2 = st.columns([1,4.8])
+        col1, col2 = st.columns([1,7.5])
 
         with col1:
             click_button= st.button("Analyze Text", type="primary")

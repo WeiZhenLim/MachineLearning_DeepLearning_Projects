@@ -22,6 +22,7 @@ nltk.download("punkt")
 nltk.download("reuters")
 nltk.download("words")
 nltk.download("stopwords")
+nltk.download('wordnet')
 
 # ------------------------------------------------------------------------------------------------------------------------------
 

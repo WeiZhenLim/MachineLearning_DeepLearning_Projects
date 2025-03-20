@@ -119,8 +119,8 @@ def main_app():
     st.title('📰 Business & Finance Spell Checker (Reuters-Based)')
 
     # Description
-    st.write("""This is a simple spelling correction system that is built using Financial Corpus. 
-            You can input text or upload a file to check the spelling of the text.""")
+    st.write("""This is a simple spelling correction system that is built using Reuters Corpus. 
+            You can input text (500 characters) to check the spelling of the text.""")
 
     # NOTE: Session State
 
@@ -164,32 +164,12 @@ def main_app():
     # Subheader
     st.subheader("Input 📥")
 
-    with st.expander("Click here to choose the input method"):
-        input_type = ['Text', 'File Upload']
-        input_choice = st.radio('Select Input Type', input_type)
+    # Text Input
+    with st.container(border=True):
+        text_input = st.text_area('Enter Text:', height=200, max_chars=500, value=st.session_state["text_input"])
 
-        # Detect if the user switched input methods
-        if input_choice != st.session_state["last_input_choice"]:
-            st.session_state["last_input_choice"] = input_choice
-            reset_spelling_state("")
-            st.session_state["analyze_clicked"] = False
-            st.session_state["expander_open"] = False
-
-        if input_choice == 'Text':
-            # Text Input
-            text_input = st.text_area('Enter Text:', height=200, max_chars=500, value=st.session_state["text_input"])
-
-            # Update session state
-            st.session_state["text_input"] = text_input
-
-        elif input_choice == 'File Upload':
-            # File Upload
-            file = st.file_uploader('Upload File:', type=['txt', 'docx'], key="file_upload")
-            file_text = "Text from uploaded file."
-
-            # Update session state
-            # st.session_state["file_upload"] = file
-            # st.session_state["text_input"] = file_text
+    # Update session state
+    st.session_state["text_input"] = text_input
 
     # Create column for "Analyze Text" and "Reset Text" buttons
     col1, col2, col3  = st.columns([1.1, 1, 4])
@@ -229,9 +209,6 @@ def main_app():
         if st.button("Reset"):
             st.session_state["analyze_clicked"] = False
             st.session_state["expander_open"] = False
-            
-            # # Reset session state
-            # st.session_state["file_upload"] = None
             st.session_state["text_input"] = ""
 
             st.rerun()
@@ -249,7 +226,7 @@ def main_app():
             st.session_state["expander_open"] = True
 
             # Display the number of misspelled words
-            if len(st.session_state['remaining_errors']) > 0 and input_choice == "Text":
+            if len(st.session_state['remaining_errors']) > 0:
                 
                 selected_word = get_highlight_word(st.session_state["misspelled_words"])
 
@@ -298,11 +275,8 @@ def main_app():
 
             else:
                 
-                if input_choice == "Text":
-                    # Get corrected text
-                    corrected_text = st.session_state["corrected_text"]
-                else:
-                    corrected_text = file_text
+                # Get corrected text
+                corrected_text = st.session_state["corrected_text"]
 
                 st.markdown(f'<div class="bordered-box">{corrected_text}</div>', unsafe_allow_html=True)
 

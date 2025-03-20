@@ -93,16 +93,13 @@ def get_trigram_prob(w1, w2, w3):
 spell = SpellChecker()
 spell.word_frequency.load_words(list(word_freq.keys()))  # Load Reuters words
 
-# Add Custom Word List
-spell.word_frequency.load_words(["cutting-edge"])
-
 # Function to detect misspelled words while preserving original input formatting
 def detect_misspellings(text):
     # Extract words while keeping their original form
     words = re.findall(r"\b\w+['-]?\w*\b", text)  # Keeps contractions & hyphenated words
 
     # Normalize words to lowercase for SpellChecker lookup
-    normalized_words = [word.lower().strip(".,!?") for word in words]
+    normalized_words = [word.lower().strip(".,!?-") for word in words]
 
     # Find misspelled words using normalized text
     unknown_words = spell.unknown(normalized_words)
@@ -115,7 +112,7 @@ def detect_misspellings(text):
 # Function to suggest corrections with optional bigram probability ranking
 def suggest_corrections(word, prev_word=None, next_word=None, top_n=5):
 
-    word = word.lower().strip(".,!?")  # Normalize word for lookup
+    word = word.lower().strip(".,!?-")  # Normalize word for lookup
     
     try:
         candidates = list(spell.candidates(word)) or ['']
@@ -144,7 +141,7 @@ def detect_and_suggest_corrections(text, top_n=5):
     words_original = re.findall(r"\b\w+['-]?\w*\b", text)
     
     # Normalize words to lowercase for SpellChecker lookup
-    words_normalized = [word.lower().strip(".,!?") for word in words_original]
+    words_normalized = [word.lower().strip(".,!?-") for word in words_original]
 
     misspelled_words = detect_misspellings(text)  # Detect misspelled words
     corrections = {}
@@ -156,6 +153,15 @@ def detect_and_suggest_corrections(text, top_n=5):
 
         if word in misspelled_words:
             corrections[word] = suggest_corrections(normalized_word, prev_word, next_word, top_n)
+
+    # Store words that need to be removed
+    words_to_remove = [word for word, corr in corrections.items() if corr[0] == '']
+
+    # Remove from dictionary and list
+    for word in words_to_remove:
+        del corrections[word]  # Remove from dictionary
+        if word in misspelled_words:
+            misspelled_words.remove(word)  # Remove from the list
 
     return misspelled_words, corrections
 

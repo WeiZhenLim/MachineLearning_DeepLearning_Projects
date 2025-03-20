@@ -17,6 +17,7 @@ from collections import Counter, defaultdict
 import re
 
 # Ensure necessary downloads
+nltk.download('punkt_tab')
 nltk.download("punkt")
 nltk.download("reuters")
 nltk.download("words")

@@ -7,4 +7,3 @@ spellchecker
 Levenshtein
 matplotlib
 wordcloud
-indexer

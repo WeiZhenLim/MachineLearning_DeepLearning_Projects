@@ -26,4 +26,55 @@ def home_page():
 
 def about_page():
     show_banner()
-    st.title("About Page 📖")
+    st.title("About Diabetes Prediction App 📖")
+
+    st.markdown(
+        """
+        ## 📌 About This App
+        This application is a **Diabetes Prediction Tool** built using **Streamlit**. It allows users to assess their risk of developing **early-stage diabetes** using **Machine Learning (ML) models** trained on medical data.  
+
+        The app analyzes user-provided health information and predicts whether the individual has a **high or low risk of diabetes** based on their symptoms and risk factors.
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("## 🔧 Technologies Used")
+    st.write("- **Streamlit** for UI and app deployment")
+    st.write("- **Scikit-learn** for machine learning model training and inference")
+    st.write("- **Pandas & NumPy** for data processing")
+    st.write("- **Matplotlib & Seaborn** for data visualization")
+    st.write("- **Plotly** for interactive charts")
+
+    st.markdown("## 🎯 Features")
+    st.write(
+        """
+        - **Predict diabetes risk** based on user inputs
+        - **Perform exploratory data analysis (EDA)** to understand trends in diabetes-related data
+        - **Interactive visualizations** for data insights
+        - **User-friendly interface** with real-time processing
+        """
+    )
+
+    st.markdown("## 👨‍💻 Developer")
+    st.write("**Developed by: Lim Wei Zhen**")
+    st.write("**GitHub:** [Link](https://github.com/WeiZhenLim)")
+    st.write("**LinkedIn:** [Link](https://www.linkedin.com/in/weizhen-lim/)")
+
+    st.markdown("## 📚 Learning Resources")
+    st.write(
+        """
+        This project was built using knowledge gained from the Udemy course:  
+        **[Streamlit for Data Science and Machine Learning](https://www.udemy.com/share/103Mg23@lrrcYB5c9ZvznO0Oc6LD691ZFuIsmh_HumMlHZcZ6GyBZXxSC7va-YKFuym8XZWi2g==/)**  
+        """
+    )
+    st.write("**Instructor:** Jesse E. Agbe [(Link to Bio)](https://www.udemy.com/user/jesse-e-agbe/)")
+
+    st.markdown("## 💡 How to Use?")
+    st.write("1️⃣ Enter relevant health information into the form on the main page.")
+    st.write("2️⃣ Click **Predict** to get the diabetes risk assessment.")
+    st.write("3️⃣ View the **prediction result** and additional insights.")
+    st.write("4️⃣ Click **Reset** to clear the inputs and start over.")
+
+    st.info("""📢 This project is a demonstration of machine learning for diabetes prediction. 
+            It is not a medical diagnosis tool. 
+            Always consult a healthcare professional for accurate medical assessments.""")

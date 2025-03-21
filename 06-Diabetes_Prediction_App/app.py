@@ -15,5 +15,6 @@ ml_pg = st.Page(ml_app.ml_page, title='Diabetes Prediction (ML)', icon='🩺')
 about_pg = st.Page(info_app.about_page, title='About', icon='📖')
 
 # Create navigation
-nav = st.navigation({"Home": [home_pg], "Exploratory Data Analysis (EDA)": [eda_des_pg, eda_plot_pg], "About": [about_pg]})
+nav = st.navigation({"Home": [home_pg], "Exploratory Data Analysis (EDA)": [eda_des_pg, eda_plot_pg], 
+                     "Machine Learning Prediction": [ml_pg],"About": [about_pg]})
 nav.run()

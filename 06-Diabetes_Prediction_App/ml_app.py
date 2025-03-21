@@ -93,7 +93,7 @@ def ml_page():
             alopecia = st.radio("Alopecia", ["No", "Yes"], horizontal=True)
             obesity = st.radio("Obesity", ["No", "Yes"], horizontal=True)
 
-        submit_info = st.form_submit_button()
+        submit_info = st.form_submit_button(label="Predict")
 
     # Actions After Clicking Submit Button
     if submit_info:

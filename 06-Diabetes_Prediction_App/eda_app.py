@@ -58,3 +58,65 @@ def eda_plot_page():
 
     st.subheader("Data Visualization 📊")
     st.write("This section provides various data visualization plots to help understand the Early Stage Diabetes Risk Prediction dataset.")
+
+    # Load dataset
+    df = load_data("data/diabetes_data_upload.csv")
+    df_encoded = load_data("data/diabetes_data_upload_clean.csv")
+    df_freq = load_data("data/freqdist_of_age_data.csv")[['Age', 'count']]
+
+    # Format expander font size
+    expander_formatter(16)
+
+    # Layouts for Gender Distribution
+    col1, col2 = st.columns([2,1])
+
+    with col1:
+
+        with st.expander("Dist Plot of Gender"):
+
+            gen_df = df["Gender"].value_counts().reset_index()
+            gen_df.columns = ["Gender", "Count"]
+
+            p1 = px.pie(gen_df, names='Gender', values='Count', color_discrete_sequence=px.colors.qualitative.D3)
+            st.plotly_chart(p1, use_container_width=True)
+
+    with col2:
+        with st.expander("Gender Distribution"):
+            st.dataframe(gen_df, hide_index=True, use_container_width=True)
+
+    # Layouts for Class Distribution
+    col3, col4 = st.columns([2,1])
+
+    with col3:
+
+        with st.expander("Dist Plot of Class"):
+
+            class_df = df["class"].value_counts().reset_index()
+            class_df.columns = ["Class", "Count"]
+
+            p2 = px.bar(class_df, x='Class', y='Count', color='Class', color_discrete_sequence=px.colors.qualitative.D3)
+            st.plotly_chart(p2, use_container_width=True)
+
+    with col4:
+
+        with st.expander("Class Distribution"):
+            st.dataframe(class_df, hide_index=True, use_container_width=True)
+
+    # Freq Dist
+    with st.expander("Frequency Distribution of Age"):
+
+        p3 = px.bar(df_freq, x='Age', y='count', color_discrete_sequence=px.colors.qualitative.D3)
+        st.plotly_chart(p3, use_container_width=True)
+
+    # Outlier Detection
+    with st.expander("Outlier Detection Plot"):
+
+        p4 = px.box(df, x='Age', color='Gender', color_discrete_sequence=px.colors.qualitative.D3)
+        st.plotly_chart(p4, use_container_width=True)
+
+    # Correlation 
+    with st.expander("Correlation Matrix"):
+        corr_matrix = df_encoded.corr()
+
+        p5 = px.imshow(corr_matrix, color_continuous_scale="Plasma")
+        st.plotly_chart(p5, use_container_width=True)

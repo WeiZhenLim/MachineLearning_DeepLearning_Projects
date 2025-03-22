@@ -42,7 +42,7 @@ def about_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("## 🔧 Technologies Used")
+    st.subheader("🔧 Technologies Used")
     st.write("- **Streamlit** for UI and web app deployment")
     st.write("- **Scikit-learn & XGBoost** for machine learning modeling")
     st.write("- **NLTK & Regex** for text preprocessing")
@@ -50,7 +50,7 @@ def about_page():
     st.write("- **Plotly & Matplotlib** for interactive visualizations")
     st.write("- **Pandas & NumPy** for data manipulation")
 
-    st.markdown("## 🎯 Features")
+    st.subheader("🎯 Features")
     st.write(
         """
         - **Predict sentiment** of tweets using a trained XGBoost model
@@ -60,17 +60,18 @@ def about_page():
         """
     )
 
-    st.markdown("## 👨‍💻 Developer")
+    st.subheader("👨‍💻 Developer")
     st.write("1️⃣ **Lim Wei Zhen**")
     st.write("2️⃣**Chow Mei Foong**")
     st.write("3️⃣**Chia Zhi Xuan**")
          
-    st.markdown("## 💡 How to Use?")
+    st.subheader("💡 How to Use?")
     st.write("1️⃣ Enter a tweet into the input box on the Twitter Tweets Sentiment Analysis page.")
     st.write("2️⃣ Click **Check Tweet Sentiment** to process and classify the input.")
     st.write("3️⃣ View the **cleaned text for sentiment analysis** and the **prediction tweets sentiment**.")
     st.write("4️⃣ Use **Reset** to clear the form and try again.")
 
-    st.info("""📢 This project is for educational and demonstration purposes only. 
-            The sentiment predictions are based on machine learning models trained on Twitter data 
-            and do not reflect official opinions or facts.""")
+    st.subheader("Future Work 🚀")
+    st.write("1️⃣ Improve Text Preprocessing – Some sentiment-bearing words were not processed correctly. The preprocessing pipeline should be reviewed to better handle context, punctuation, and special cases.")
+    st.write("2️⃣ Enable Multiclass Classification – Currently, neutral and positive tweets are grouped. Future work can explore predicting negative, neutral, and positive sentiments separately.")
+    st.write("3️⃣ Explore Deep Learning Models – Future improvements could include using models like LSTM or BERT for better contextual understanding and prediction accuracy.")

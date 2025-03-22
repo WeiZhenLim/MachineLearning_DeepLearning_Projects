@@ -24,6 +24,9 @@ def load_model(model_file):
     loaded_model = joblib.load(open(os.path.join(model_file), "rb"))
     return loaded_model
 
+# Download stopwords from nltk
+nltk.download("stopwords")
+
 # Function to preprocess the input text
 def preprocess_text(text):
 

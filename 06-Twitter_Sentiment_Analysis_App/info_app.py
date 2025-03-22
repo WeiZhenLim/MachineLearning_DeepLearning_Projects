@@ -61,9 +61,9 @@ def about_page():
     )
 
     st.subheader("👨‍💻 Team Members")
-    st.write("1️⃣ **Lim Wei Zhen**")
-    st.write("2️⃣**Chow Mei Foong**")
-    st.write("3️⃣**Chia Zhi Xuan**")
+    st.write("1️⃣ **Chow Mei Foong**")
+    st.write("2️⃣ **Lim Wei Zhen**")
+    st.write("3️⃣ **Chia Zhi Xuan**")
          
     st.subheader("💡 How to Use?")
     st.write("1️⃣ Enter a tweet into the input box on the Twitter Tweets Sentiment Analysis page.")

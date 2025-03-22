@@ -292,13 +292,13 @@ def about_app():
     st.title("About This App 📌")
     st.write("""
     This is a simple spelling correction system that is built using Reuters Corpus. 
-    You can input text or upload a file to check the spelling of the text.
+    You can input text to check the spelling of the text.
     """)
 
     st.subheader("Team members 👨‍💻")
-    st.write("Lim Wei Zhen")
-    st.write("Chia Zhi Xuan")
-    st.write("Chow Mei Foong")
+    st.write("1️⃣ **Chia Zhi Xuann**")
+    st.write("2️⃣ **Lim Wei Zhen**")
+    st.write("3️⃣ **Chow Mei Foong**")
 
     st.subheader("Data Source 🛢️")
     st.write("""

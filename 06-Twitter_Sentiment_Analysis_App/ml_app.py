@@ -32,8 +32,8 @@ def load_model(model_file):
 nltk.download("stopwords")
 
 # URL from github
-url_vec = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/model/20250322_TFIDFVectorizer.pkl"
-url_model = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/model/20250322_Tuned_XGBoost_Model.pkl"
+url_vec = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/06-Twitter_Sentiment_Analysis_App/model/20250322_TFIDFVectorizer.pkl"
+url_model = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/06-Twitter_Sentiment_Analysis_App/model/20250322_Tuned_XGBoost_Model.pkl"
 
 # Function to preprocess the input text
 def preprocess_text(text):

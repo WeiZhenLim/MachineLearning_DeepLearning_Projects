@@ -15,8 +15,8 @@ from wordcloud import WordCloud
 # Load utils
 from utils import show_banner, expander_formatter
 
-url_tweets = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/data/Tweets.csv"
-url_tweets_processed = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/data/Preprocessed_Tweets.csv"
+url_tweets = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/06-Twitter_Sentiment_Analysis_App/data/Tweets.csv"
+url_tweets_processed = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/06-Twitter_Sentiment_Analysis_App/data/Preprocessed_Tweets.csv"
 
 # NOTE: Functions
 @st.cache_data

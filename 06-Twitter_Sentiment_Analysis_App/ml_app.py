@@ -13,6 +13,7 @@ import re
 import string
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+import nltk
 
 # Load utils 
 from utils import show_banner, expander_formatter

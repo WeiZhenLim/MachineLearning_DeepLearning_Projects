@@ -60,7 +60,7 @@ def about_page():
         """
     )
 
-    st.subheader("👨‍💻 Developer")
+    st.subheader("👨‍💻 Team Members")
     st.write("1️⃣ **Lim Wei Zhen**")
     st.write("2️⃣**Chow Mei Foong**")
     st.write("3️⃣**Chia Zhi Xuan**")

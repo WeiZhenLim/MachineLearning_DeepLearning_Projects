@@ -213,6 +213,9 @@ def main_app():
 
             st.rerun()
 
+    if st.session_state["analyze_clicked"] and len(text_input) == 0:
+        st.error("⚠️ Please enter some text for the spell check.")
+
     # NOTE: Display Analysis Results
 
     # Only show the spelling check results if the "Analyze Text" button was clicked

@@ -219,7 +219,7 @@ def main_app():
     # NOTE: Display Analysis Results
 
     # Only show the spelling check results if the "Analyze Text" button was clicked
-    if st.session_state["analyze_clicked"]:
+    if st.session_state["analyze_clicked"] and len(text_input) > 0:
 
         st.subheader("Spelling Check 🔍")
 

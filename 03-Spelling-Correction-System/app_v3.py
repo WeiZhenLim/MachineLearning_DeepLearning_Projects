@@ -195,6 +195,9 @@ def main_app():
             # Reset spelling state to initial state on each analysis
             reset_spelling_state(text_input, misspelled_words)
 
+    if st.session_state["analyze_clicked"] and len(text_input) == 0:
+        st.error("⚠️ Please enter some text for the spell check.")
+
     if st.session_state["loading"]:
         # Add spinner
         with st.spinner("Checking for spelling errors...", show_time=True):
@@ -212,9 +215,6 @@ def main_app():
             st.session_state["text_input"] = ""
 
             st.rerun()
-
-    if st.session_state["analyze_clicked"] and len(text_input) == 0:
-        st.error("⚠️ Please enter some text for the spell check.")
 
     # NOTE: Display Analysis Results
 

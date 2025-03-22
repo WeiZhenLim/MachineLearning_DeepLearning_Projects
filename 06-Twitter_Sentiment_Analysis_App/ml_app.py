@@ -97,7 +97,7 @@ def preprocess_text(text):
 # NOTE: ML Page
 def ml_page():
     show_banner()
-    st.title("Twitter Sentiment Analysis with Machine Learning 🤖")
+    st.title("Twitter Tweets Sentiment Analysis with Machine Learning 🤖")
     st.write("Analyze the sentiment of any tweet using a machine learning model trained on Twitter Tweets data.")
 
     st.subheader("Input 📥")

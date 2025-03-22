@@ -211,7 +211,7 @@ def main_app():
 
     # Only show the spelling check results if the "Analyze Text" button was clicked
     if st.session_state["analyze_clicked"] and len(text_input) > 0:
-        
+
         if st.session_state["loading"]:
             # Add spinner
             with st.spinner("Checking for spelling errors...", show_time=True):
@@ -289,7 +289,7 @@ def main_app():
                 st.download_button("Download Corrected Text (txt)", corrected_text, "corrected_text.txt")
 
 def about_app():
-    st.title("About 📖")
+    st.title("About This App 📌")
     st.write("""
     This is a simple spelling correction system that is built using Reuters Corpus. 
     You can input text or upload a file to check the spelling of the text.

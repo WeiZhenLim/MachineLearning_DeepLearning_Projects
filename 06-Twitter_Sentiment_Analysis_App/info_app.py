@@ -27,32 +27,36 @@ def home_page():
 
 def about_page():
     show_banner()
-    st.title("About Diabetes Prediction App 📖")
+    st.title("About This App 📌")
 
     st.markdown(
         """
-        ## 📌 About This App
-        This application is a **Diabetes Prediction Tool** built using **Streamlit**. It allows users to assess their risk of developing **early-stage diabetes** using **Machine Learning (ML) models** trained on medical data.  
-
-        The app analyzes user-provided health information and predicts whether the individual has a **high or low risk of diabetes** based on their symptoms and risk factors.
+        This application is a **Twitter Sentiment Analysis Tool** built using **Streamlit** and powered by **Machine Learning (ML)**.
+        The app analyzes user-submitted tweets and classifies them into two categories:  
+        - **Negative**
+        - **Non-Negative (Neutral/Positive)** 
+        
+        It's designed to showcase the use of NLP techniques and ML models in real-time sentiment classification. 
+        The classification is powered by a fine-tuned **XGBoost model**, and text is preprocessed and vectorized using **TF-IDF**.
         """,
         unsafe_allow_html=True
     )
 
     st.markdown("## 🔧 Technologies Used")
-    st.write("- **Streamlit** for UI and app deployment")
-    st.write("- **Scikit-learn** for machine learning model training and inference")
-    st.write("- **Pandas & NumPy** for data processing")
-    st.write("- **Matplotlib & Seaborn** for data visualization")
-    st.write("- **Plotly** for interactive charts")
+    st.write("- **Streamlit** for UI and web app deployment")
+    st.write("- **Scikit-learn & XGBoost** for machine learning modeling")
+    st.write("- **NLTK & Regex** for text preprocessing")
+    st.write("- **TF-IDF Vectorizer** for feature extraction")
+    st.write("- **Plotly & Matplotlib** for interactive visualizations")
+    st.write("- **Pandas & NumPy** for data manipulation")
 
     st.markdown("## 🎯 Features")
     st.write(
         """
-        - **Predict diabetes risk** based on user inputs
-        - **Perform exploratory data analysis (EDA)** to understand trends in diabetes-related data
-        - **Interactive visualizations** for data insights
-        - **User-friendly interface** with real-time processing
+        - **Predict sentiment** of tweets using a trained XGBoost model
+        - **Preprocessing pipeline** including tokenization, cleaning, and vectorization
+        - **Interactive interface** with clean UI and real-time feedback
+        - **View prediction tweet sentiment and cleaned tweet input**
         """
     )
 
@@ -62,11 +66,11 @@ def about_page():
     st.write("3️⃣**Chia Zhi Xuan**")
          
     st.markdown("## 💡 How to Use?")
-    st.write("1️⃣ Enter relevant health information into the form on the main page.")
-    st.write("2️⃣ Click **Predict** to get the diabetes risk assessment.")
-    st.write("3️⃣ View the **prediction result** and additional insights.")
-    st.write("4️⃣ Click **Reset** to clear the inputs and start over.")
+    st.write("1️⃣ Enter a tweet into the input box on the Twitter Tweets Sentiment Analysis page.")
+    st.write("2️⃣ Click **Check Tweet Sentiment** to process and classify the input.")
+    st.write("3️⃣ View the **cleaned text for sentiment analysis** and the **prediction tweets sentiment**.")
+    st.write("4️⃣ Use **Reset** to clear the form and try again.")
 
-    st.info("""📢 This project is a demonstration of machine learning for diabetes prediction. 
-            It is not a medical diagnosis tool. 
-            Always consult a healthcare professional for accurate medical assessments.""")
+    st.info("""📢 This project is for educational and demonstration purposes only. 
+            The sentiment predictions are based on machine learning models trained on Twitter data 
+            and do not reflect official opinions or facts.""")

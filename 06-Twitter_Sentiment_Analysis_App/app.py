@@ -9,7 +9,7 @@ import info_app
 home_pg = st.Page(info_app.home_page, title='Home', icon='🏠')
 eda_des_pg = st.Page(eda_app.eda_des_page, title='Summary Statistics', icon='📑')
 eda_plot_pg = st.Page(eda_app.eda_plot_page, title='Data Visualizations', icon='📊')
-ml_pg = st.Page(ml_app.ml_page, title='Twitter Sentiment Analysis', icon='💬')
+ml_pg = st.Page(ml_app.ml_page, title='Twitter Tweets Sentiment Analysis', icon='💬')
 about_pg = st.Page(info_app.about_page, title='About', icon='📖')
 
 # Create navigation

@@ -3,6 +3,8 @@ import streamlit as st
 # Load ML Packages
 import joblib
 import os
+import requests
+from io import BytesIO
 
 # Load EDA Packages
 import numpy as np
@@ -22,11 +24,16 @@ import time
 # NOTE: Function to Load ML MOdels
 @st.cache_resource
 def load_model(model_file):
-    loaded_model = joblib.load(open(os.path.join(model_file), "rb"))
+    response = requests.get(model_file)
+    loaded_model = joblib.load(BytesIO(response.content))
     return loaded_model
 
 # Download stopwords from nltk
 nltk.download("stopwords")
+
+# URL from github
+url_vec = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/model/20250322_TFIDFVectorizer.pkl"
+url_model = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/model/20250322_Tuned_XGBoost_Model.pkl"
 
 # Function to preprocess the input text
 def preprocess_text(text):
@@ -93,7 +100,7 @@ def preprocess_text(text):
     text = " ".join(text)
 
     # Vectorization
-    vectorizer = load_model("model/20250322_TFIDFVectorizer.pkl")
+    vectorizer = load_model(url_vec)
     text_vec = vectorizer.transform([text])
 
     return text, text_vec
@@ -157,7 +164,7 @@ def ml_page():
         # Prediction Result
         with st.expander("Final Sentiment Prediction"):
 
-            model = load_model("model/20250322_Tuned_XGBoost_Model.pkl")
+            model = load_model(url_model)
 
             pred_prob = model.predict_proba(single_sample)[0][1]
 

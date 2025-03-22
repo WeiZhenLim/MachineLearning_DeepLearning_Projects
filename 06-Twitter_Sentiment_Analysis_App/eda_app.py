@@ -15,6 +15,9 @@ from wordcloud import WordCloud
 # Load utils
 from utils import show_banner, expander_formatter
 
+url_tweets = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/data/Tweets.csv"
+url_tweets_processed = "https://github.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/blob/main/06-Twitter_Sentiment_Analysis_App/data/Preprocessed_Tweets.csv"
+
 # NOTE: Functions
 @st.cache_data
 def load_data(file):
@@ -30,9 +33,9 @@ def eda_des_page():
     st.write("This section provides a descriptive analysis of the Twitter Tweets dataset.")
 
     # Load dataset
-    df = load_data("data/Tweets.csv")
+    df = load_data(url_tweets)
     df.dropna(inplace=True) # Drop record with missing value
-    df_processed = load_data("data/Preprocessed_Tweets.csv")
+    df_processed = load_data(url_tweets_processed)
 
     # Format expander font size
     expander_formatter(16)
@@ -122,9 +125,9 @@ def eda_plot_page():
     st.write("This section provides various data visualization plots to help understand the Twitter Tweets dataset.")
 
     # Load dataset
-    df = load_data("data/Tweets.csv")
+    df = load_data(url_tweets)
     df.dropna(inplace=True) # Drop record with missing value
-    df_processed = load_data("data/Preprocessed_Tweets.csv")
+    df_processed = load_data(url_tweets_processed)
 
     # Format expander font size
     expander_formatter(16)

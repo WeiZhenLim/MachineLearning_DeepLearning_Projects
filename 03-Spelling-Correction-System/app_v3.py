@@ -198,15 +198,6 @@ def main_app():
     if st.session_state["analyze_clicked"] and len(text_input) == 0:
         st.error("⚠️ Please enter some text for the spell check.")
 
-    if st.session_state["loading"]:
-        # Add spinner
-        with st.spinner("Checking for spelling errors...", show_time=True):
-            time.sleep(1)
-            st.toast("Spelling Check Done!", icon="✅")
-
-        # Stop loading after the process completes
-        st.session_state["loading"] = False
-
     with col2:
         # Reset button
         if st.button("Reset"):
@@ -220,6 +211,15 @@ def main_app():
 
     # Only show the spelling check results if the "Analyze Text" button was clicked
     if st.session_state["analyze_clicked"] and len(text_input) > 0:
+        
+        if st.session_state["loading"]:
+            # Add spinner
+            with st.spinner("Checking for spelling errors...", show_time=True):
+                time.sleep(1)
+                st.toast("Spelling Check Done!", icon="✅")
+
+        # Stop loading after the process completes
+        st.session_state["loading"] = False
 
         st.subheader("Spelling Check 🔍")
 

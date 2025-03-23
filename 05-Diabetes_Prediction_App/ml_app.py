@@ -57,7 +57,7 @@ def load_model(model_file):
     loaded_model = joblib.load(BytesIO(response.content))
     return loaded_model
 
-url_model = "https://raw.githubusercontent.comgithub.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/models/logistic_regression_model_diabetes.pkl"
+url_model = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/models/logistic_regression_model_diabetes.pkl"
 
 # NOTE: ML Page
 def ml_page():

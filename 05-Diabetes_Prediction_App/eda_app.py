@@ -19,6 +19,10 @@ def load_data(file):
     df = pd.read_csv(file)
     return df
 
+url_data = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/data/diabetes_data_upload.csv"
+url_clean_data = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/data/diabetes_data_upload_clean.csv"
+url_freq_data = "https://raw.githubusercontent.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/data/freqdist_of_age_data.csv"
+
 # NOTE: Apps
 def eda_des_page():
     show_banner()
@@ -28,8 +32,8 @@ def eda_des_page():
     st.write("This section provides a descriptive analysis of the Early Stage Diabetes Risk Prediction dataset.")
 
     # Load dataset
-    df = load_data("data/diabetes_data_upload.csv")
-    df_encoded = load_data("data/diabetes_data_upload_clean.csv")
+    df = load_data(url_data)
+    df_encoded = load_data(url_clean_data)
 
     # Format expander font size
     expander_formatter(16)
@@ -60,9 +64,9 @@ def eda_plot_page():
     st.write("This section provides various data visualization plots to help understand the Early Stage Diabetes Risk Prediction dataset.")
 
     # Load dataset
-    df = load_data("data/diabetes_data_upload.csv")
-    df_encoded = load_data("data/diabetes_data_upload_clean.csv")
-    df_freq = load_data("data/freqdist_of_age_data.csv")[['Age', 'count']]
+    df = load_data(url_data)
+    df_encoded = load_data(url_clean_data)
+    df_freq = load_data(url_freq_data)[['Age', 'count']]
 
     # Format expander font size
     expander_formatter(16)

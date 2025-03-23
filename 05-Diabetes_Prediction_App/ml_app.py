@@ -3,6 +3,8 @@ import streamlit as st
 # Load ML Packages
 import joblib
 import os
+import requests
+from io import BytesIO
 
 # Load EDA Packages
 import numpy as np
@@ -51,8 +53,11 @@ def get_value(val, my_dict):
 # NOTE: Function to Lead ML MOdels
 @st.cache_resource
 def load_model(model_file):
-    loaded_model = joblib.load(open(os.path.join(model_file), "rb"))
+    response = requests.get(model_file)
+    loaded_model = joblib.load(BytesIO(response.content))
     return loaded_model
+
+url_model = "https://raw.githubusercontent.comgithub.com/WeiZhenLim/MachineLearning_DeepLearning_Projects/main/05-Diabetes_Prediction_App/models/logistic_regression_model_diabetes.pkl"
 
 # NOTE: ML Page
 def ml_page():
@@ -137,7 +142,7 @@ def ml_page():
         with st.expander("Prediction Result"):
             single_sample = np.array(encoded_result).reshape(1, -1)
 
-            model = load_model("models/logistic_regression_model_diabetes.pkl")
+            model = load_model(url_model)
             prediction = model.predict(single_sample)
             pred_prob = model.predict_proba(single_sample)
 
